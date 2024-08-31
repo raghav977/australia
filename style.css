@@ -24,35 +24,9 @@ body {
 .logo h3{
     font-size: 1.5rem;
 }
-#hamburger{
-    text-align: right;
-    /* border: 2px solid red; */
-    display: flex;
-    align-items: center;
-    width:100vw;
-    margin:0 auto;
-    position: relative;
-    
-    justify-content: center;
-}
-#hamburger i{
-    font-size: 1.5rem;
-    padding: 1rem;
-    display: none;
-    align-items: center;
-    margin: 0 auto;
 
-}
-#hamburger .fa-window-close{
-    display: none;
-    border: 2px solid red;
-    position: absolute;
-    top:0;
-    right: 0;
-    left: 100px;
 
-    
-}
+
 
 
 
@@ -153,7 +127,7 @@ textarea {
     font-size: 1.5em;
     cursor: pointer;
     /* color: #fff; */
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 button {
@@ -492,7 +466,7 @@ ul{
     .navbar {
         padding: 1rem 2rem;
         flex-direction: column;
-        border: 2px solid red;
+        /* border: 2px solid red; */
         align-items: flex-start;
         justify-content: center;
         align-items: center;
