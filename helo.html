@@ -1,27 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar with Font Awesome</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="helo.css">
-</head>
-<body>
-    <nav>
-        <div class="logo">
-            <h2>Fatihwin</h2>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="menu-icon" id="menuIcon">
-            <i class="fas fa-bars"></i> <!-- Font Awesome icon -->
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="helo.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/7d64c4bddb.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="left-header">
+        <i class="fa fa-solid fa-phone">+61 4 1234 5678 </i>
+        <i class="fas fa fa-location-arrow">Australia, Sydney</i>
+        <i class="fas fa fa-clock">Mon to Sat 9:00am to 9:00pm</i>
+      </div>
+      <div class="right-header">
+        <i class="fab fa fa-facebook"></i>
+        <i class="fab fa fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </header>
+    <nav class="navbar">
+      <div class="logo">
+        <h3>Healthcare</h3>
+      </div>
+      
+    </div>
+    
+      <ul class="nav-list nav-links" id="navLinks">
+          <li class="nav-item"><a href="/index.html" class="home">Home</a></li>
+          <li class="nav-item" onclick="showDetails('cardiology')">Cardiology</li>
+          <li class="nav-item" onclick="showDetails('neurology')">Neurology</li>
+          <li class="nav-item" onclick="showDetails('orthopedics')">Orthopedics</li>
+          <li class="nav-item" onclick="showDetails('pediatrics')">Pediatrics</li>
+          <li class="nav-item" onclick="showDetails('dermatology')">Dermatology</li>
+      </ul>
+  
+  <div class="menu-icon" id="menuIcon">
+      <i class="fas fa-bars"></i> <!-- Corrected Font Awesome icon -->
+  </div>
+  
     </nav>
-    <script src="helo.js"></script>
-</body>
+    <div class="details-section" id="details-section">
+      <!-- Details will be loaded here dynamically -->
+    </div>
+    <main>
+      <div class="main-left">
+        <p class="main-left-heading">We Care About Your Health</p>
+        <p class="main-left-para">
+          Take the world's Best treatment<br />
+          From Our Healthcare
+        </p>
+        <div class="main-bottom">
+          <a href="#book">
+            <button id="appointment" onclick="showForm()">
+              Book an Appointment
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="main-right">
+        <img src="doctormain2nd.jpg" alt="" />
+      </div>
+    </main>
+
+    <div class="form-container modal" id="book">
+      <div class="modal-content">
+        <div class="form-header">
+          <h2>Patient Registration Form</h2>
+          <i class="fas fa-window-close" onclick="closeForm()"></i>
+        </div>
+        <form id="patient-form" onsubmit="return validateForm()">
+          <!-- Patient Name -->
+          <label for="name">Patient Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+          />
+
+          <!-- Contact Information -->
+          <label for="contact">Contact Information:</label>
+          <input
+            type="text"
+            id="contact"
+            name="contact"
+            placeholder="Enter your contact number"
+          />
+
+          <!-- Date of Birth -->
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" />
+
+          <!-- Disease Symptoms -->
+          <label for="symptoms">Disease Symptoms:</label>
+          <textarea
+            id="symptoms"
+            name="symptoms"
+            placeholder="Describe the symptoms"
+          ></textarea>
+
+          <!-- Appointment with Doctor -->
+          <label for="doctor">Choose Doctor:</label>
+          <select id="option-doctor" name="doctor">
+            <option value="">Select a doctor</option>
+            <!-- Options will be generated here by JavaScript -->
+          </select>
+          
+
+          <!-- IP/OP Patient Option -->
+          <label for="patient-type">Patient Type:</label>
+          <select id="patient-type" name="patient-type" onChange="showRoomSelect()">
+            <option value="">Select patient type</option>
+            <option value="IP">In-Patient (IP)</option>
+            <option value="OP">Out-Patient (OP)</option>
+          </select>
+          <div id="room-select" style="display: none" onchange="roomSelect()">
+            <label for="room">Select Room:</label>
+            <select id="room" name="room">
+              <option value="">Select a room</option>
+              <option value="general">General Ward - $100/day</option>
+              <option value="semi-private">Semi-Private - $200/day</option>
+              <option value="private">Private - $300/day</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit" onClick="calculateTotalAmount()">Submit</button>
+        </form>
+
+        <div id="total-amount">Total Amount: $0</div>
+      </div>
+    </div>
+    <div class="why-choose-us">
+      <h1>Why Choose Us</h1>
+      <div class="reason-for-choose">
+        <div>
+          <i class="fas fa-tools"></i>
+          <p class="choose-heading">Advanced Equipments</p>
+          <p class="choose-text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
+            necessitatibus veniam, corporis consectetur eaque officiis
+            laudantium inventore fugit tempore eveniet.
+          </p>
+        </div>
+        <div>
+          <i class="fas fa-user-md"></i>
+          <p class="choose-heading">Qualified Doctors</p>
+          <p class="choose-text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
+            necessitatibus veniam, corporis consectetur eaque officiis
+            laudantium inventore fugit tempore eveniet.
+          </p>
+        </div>
+        <div>
+          <i class="fas fa-ambulance"></i>
+          <p class="choose-heading">Emergency health care</p>
+          <p class="choose-text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
+            necessitatibus veniam, corporis consectetur eaque officiis
+            laudantium inventore fugit tempore eveniet.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="our-teams">
+      <p class="team">Our Team</p>
+      <h3 class="team-heading">Meet Our Expert Doctors</h3>
+
+      
+      <div id="doctors"></div>
+    </div>
+
+    <div>
+      
+    </div>
+    <footer>
+      <div class="main-links">
+        <h1>Health Care</h1>
+        <div class="right-header">
+          <i class="fab fa fa-facebook"></i>
+        <i class="fab fa fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin"></i>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-left">
+
+          <h1>Company</h1>
+          <ul class="">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Find a doctor</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Departments</a></li>
+          </ul>
+        </div>
+        <div class="footer-right">
+          <h1>Contact Us</h1>
+          <ul>
+            <li>
+
+              <i class="fa fa-solid fa-phone">+61 4 1234 5678 </i>
+              <br>
+          <i class="fas fa fa-location-arrow">Australia, Sydney</i>
+          <br>
+          <i class="fas fa fa-clock">Mon to Sat 9:00am to 9:00pm</i>
+          <br>
+            </li>
+          </ul>
+
+        </div>
+        </div>
+        <div>
+          <p class="copyright">Copyright © 2023. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+  </body>
 </html>

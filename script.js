@@ -26,21 +26,21 @@ const doctors = {
     ]
 };
 
-const menuIcon = document.getElementsByClassName("menu-icon")[0];
-const navLinks = document.getElementsByClassName("nav-links")[0];
-const icon = menuIcon.querySelector("i");
+// const menuIcon = document.getElementsByClassName("menu-icon")[0];
+// const navLinks = document.getElementsByClassName("nav-links")[0];
+// const icon = menuIcon.querySelector("i");
 
-menuIcon.addEventListener("click", function() {
-    navLinks.classList.toggle("active");
-    // Toggle between fa-bars and fa-times
-    if (icon.classList.contains("fa-bars")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
-    } else {
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-    }
-});
+// menuIcon.addEventListener("click", function() {
+//     navLinks.classList.toggle("active");
+//     // Toggle between fa-bars and fa-times
+//     if (icon.classList.contains("fa-bars")) {
+//         icon.classList.remove("fa-bars");
+//         icon.classList.add("fa-times");
+//     } else {
+//         icon.classList.remove("fa-times");
+//         icon.classList.add("fa-bars");
+//     }
+// });
 
 
 function showDetails(specialization) {
@@ -253,7 +253,7 @@ function closeForm(){
 
   
 const dctrs = document.getElementById('doctors');
-// console.log(dctrs)
+console.log(dctrs)
 for(const key in doctors){
     // console.log(key)
     for(const k of doctors[key]){
