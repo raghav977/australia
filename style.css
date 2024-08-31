@@ -852,3 +852,22 @@ ul {
     padding: 0;
 }
 }
+
+@media screen and (max-width: 900px) {
+    *{
+        /* border: 2px solid red; */
+        font-size: 14px;
+    }
+    .navbar,header {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-list{
+        display:flex;
+        flex-direction: column;
+        border: 2px solid red;
+    }
+    
+
+    
+}
