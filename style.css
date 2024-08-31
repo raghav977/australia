@@ -525,7 +525,7 @@ ul{
         justify-content: center;
         width: 90vw;
         overflow: hidden;
-        border: 2px solid red;
+        /* border: 2px solid red; */
         /* padding: 1rem; */
     }
 
